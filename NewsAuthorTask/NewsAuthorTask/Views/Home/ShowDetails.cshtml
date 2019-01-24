@@ -1,0 +1,30 @@
+﻿@model IEnumerable<NewsAuthorTask.Models.Authornews>
+
+@{
+    ViewBag.Title = "ShowDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<br/>
+<br/>
+<div class="jumbotron" style="height:auto">
+    @foreach (var item in Model)
+    {
+
+    <p style="font-size:smaller; float:right; margin-top:-25px; "> @Html.ActionLink("Back", "ShowNews", "Home")</p>
+    <img src="@Url.Content(item.news.newsimg)" style=" float: left; margin: 0 20px 20px 0; width: 200px; height: 200px; border: 2px solid gray ; " />
+    <h2 >
+        <b>@Html.DisplayFor(modelItem => item.news.newstitle)</b>
+    </h2>
+    <br />
+        <p style="text-align: justify; text-indent: 2em;">@Html.DisplayFor(modelItem => item.news.newscontent)</p>
+      <br/>
+      
+        <p  style="color:rgb(51, 156, 255)" > By :  @Html.DisplayFor(modelItem => item.author.Name) </p>
+        <p style="color:rgb(51, 156, 255); font-size:small; "> Published on  : @Html.DisplayFor(modelItem => item.news.publicationDate)  &nbsp;  Created on : @Html.DisplayFor(modelItem => item.news.creationDate)</p>
+        
+    }
+
+</div>

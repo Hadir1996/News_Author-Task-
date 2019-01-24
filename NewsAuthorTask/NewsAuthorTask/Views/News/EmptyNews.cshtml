@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "EmptyNews";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br/>
+<br/>
+<div class="jumbotron" style="height:auto">
+    <h2>there is no added news yet !</h2>
+    <br />
+    @if (Request.IsAuthenticated)
+    {
+        @Html.ActionLink("Back To Editing !", "Home", "Authors", null, null)
+        <br />
+        <br />
+        @Html.ActionLink("Add news?", "AddNews", "News", null, null)
+    }
+
+</div>
+
+

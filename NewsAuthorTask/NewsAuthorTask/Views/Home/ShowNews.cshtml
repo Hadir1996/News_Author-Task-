@@ -1,0 +1,26 @@
+﻿@model IEnumerable<NewsAuthorTask.Models.Authornews>
+
+@{
+    ViewBag.Title = "ShowNews";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br/>
+<br/>
+
+    @foreach (var item in Model)
+    {
+        <div class="jumbotron" style=" height: 300px;">
+
+            <a href='@Url.Action("ShowDetails", "Home", new { id = item.news.id })'><img src="@Url.Content(item.news.newsimg)" style=" float: left; margin: 0 20px 20px 0; width: 200px; height: 200px; border: 2px solid gray ; " /></a>
+            <br />
+
+            <p> By :  @Html.DisplayFor(modelItem => item.author.Name) </p>
+
+            <a href='@Url.Action("ShowDetails", "Home", new { id = item.news.id })'>
+                <h2>@Html.DisplayFor(modelItem => item.news.newstitle)</h2>
+            </a>
+        </div>
+    }
+
+       
